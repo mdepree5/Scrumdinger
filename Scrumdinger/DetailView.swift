@@ -9,12 +9,15 @@ import SwiftUI
 
 struct DetailView: View {
     let scrum: DailyScrum
+  
     var body: some View {
       List{
-        Section(header: Text("Meetin Info")) {
-          Label("Start Meeting", systemImage: "timer")
-            .font(.headline)
-            .foregroundColor(.accentColor)
+        Section(header: Text("Meeting Info")) {
+          NavigationLink(destination: MeetingView()) {
+            Label("Start Meeting", systemImage: "timer")
+              .font(.headline)
+              .foregroundColor(.accentColor)
+          }
           HStack{
             Label("Length", systemImage: "clock")
             Spacer()
@@ -38,6 +41,7 @@ struct DetailView: View {
           }
         }
       }
+      .navigationTitle(scrum.title)
     }
 }
 
